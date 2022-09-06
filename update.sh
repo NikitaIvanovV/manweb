@@ -8,7 +8,7 @@
 DIR="$(dirname "$0")"
 
 update() {
-	git show "$1":"$2" | "$DIR"/manhtml.sh > "$3"
+	git show "$1":"$2" | "$DIR/manhtml.sh" > "$3"
 }
 
 pull() {
@@ -34,4 +34,5 @@ commit() {
 		git commit --no-edit --message='Update man page'
 }
 
+ln -s "$DIR/style.css" .
 pull "$1" && update "$@" && commit "$3"
