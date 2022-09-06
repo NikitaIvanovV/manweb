@@ -34,5 +34,5 @@ commit() {
 		git commit --no-edit --message='Update man page'
 }
 
-ln -s "$DIR/style.css" .
+ln -s "$DIR/style.css" "$DIR/.nojekyll" .
 pull "$1" && update "$@" && commit "$3"
