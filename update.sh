@@ -5,6 +5,12 @@
 # 2 - man page
 # 3 - html output
 
+DIR="$(dirname "$0")"
+
+update() {
+	git show "$1":"$2" | "$DIR"/manhtml.sh > "$3"
+}
+
 pull() {
 	ret=1
 
@@ -28,4 +34,4 @@ commit() {
 		git commit --no-edit --message='Update man page'
 }
 
-pull "$1" && ./updateindex.sh "$@" && commit "$3"
+pull "$1" && update "$@" && commit "$3"
