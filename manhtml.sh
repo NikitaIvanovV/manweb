@@ -12,6 +12,9 @@ newf() {
 # Make paragraphs one line so sed can properly process it
 norm() {
 	sed '
+		\|</head>|i\
+  <link rel="icon" type="image/x-icon" href="/favicon.png">
+
 		/^<p/ {
 			:a
 			\|</p>|b
